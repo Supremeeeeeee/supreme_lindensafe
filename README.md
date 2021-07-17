@@ -16,3 +16,6 @@ go to linden_inventory - goto - shared/items.lua and add in an item called 'safe
 video preview
 
 https://streamable.com/pjhqbq
+
+# upcoming udates
+- Animation when safe gets put down on ground
