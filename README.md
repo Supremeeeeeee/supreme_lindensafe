@@ -10,7 +10,7 @@ Just a small script that creates an object (crate) calls on linden's inventory s
 
 # requirements
 linden_inventory - https://github.com/thelindat/linden_inventory (manditory)<br/>
-bt-target - NomsFork - https://forum.cfx.re/t/bt-target-forked-updated-functionality/3881443 (manditory)
+bt-target - NomsFork - https://forum.cfx.re/t/bt-target-forked-updated-functionality/3881443 (manditory)<br/>
 go to linden_inventory - goto - shared/items.lua and add in an item called 'safe' (manditory)
 
 video preview
