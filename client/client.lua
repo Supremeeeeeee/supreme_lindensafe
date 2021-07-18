@@ -1,4 +1,4 @@
--- Created by DuncanEll
+-- Created by DuncanEll (SUPREME)
 -- Clientside
 
 ESX = exports['es_extended']:getSharedObject()
@@ -7,7 +7,30 @@ RegisterNetEvent('supreme_lindenstash:safe')
 
 AddEventHandler('supreme_lindenstash:safe', function()
 
-	Citizen.Wait(0)
+    exports['mythic_progbar']:Progress({
+        name = "unique_action_name",
+        duration = 5000,
+        label = 'Putting safe box down...',
+        useWhileDead = true,
+        canCancel = false,
+        controlDisables = {
+            disableMovement = true,
+            disableCarMovement = true,
+            disableMouse = false,
+            disableCombat = true,
+        },
+        animation = {
+            animDict = "amb@prop_human_bum_bin@base",
+            anim = "base",
+        },
+    })
+    Citizen.Wait(5000)
+    Wait(0)
+    if not DoesEntityExist(ped) then
+        ped = PlayerPedId()
+    end
+
+    ClearPedTasks(ped)
 
 local x, y, z = table.unpack(GetEntityCoords(GetPlayerPed(-1), true))
 
@@ -72,9 +95,4 @@ TriggerServerEvent("stash:Remove", args) -- Removes Safe Item From Inventory
 exports['linden_inventory']:OpenStash({ id = 'Safe', slots = 20, owner = ESX.GetPlayerData().identifier})
 end)
 
---RegisterNetEvent("playAnimation")
---AddEventHandler("playAnimation", function()
---		local pid = PlayerPedId()
---		while (not HasAnimDictLoaded("random@arrests")) do Citizen.Wait(1000) end
---		TaskPlayAnim(pid,"random@arrests","idle_c",2.0,-2.0,5000,49,0, false, false, false)
---end)
+
